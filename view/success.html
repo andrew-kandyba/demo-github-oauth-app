@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Test App</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/view/css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+</head>
+<body>
+<div class="form-signin">
+    <div class="text-center mb-10">
+        <img class="mb-4" src="/view/img/scalr.png" alt="" width="72" height="72">
+        <span>    +    </span>
+        <img class="mb-4" src="/view/img/gh.png" alt="" width="72" height="72">
+
+        {% if access_token is defined and user_repo_list is defined %}
+        <h1 class="h3 mb-3 font-weight-normal">Success!</h1>
+        <p>Access token: {{access_token}}</p>
+        <ul class="list-group list-group-flush checkbox-menu">
+            {% for repo in user_repo_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{repo.full_name}}
+                <div class="pull-right action-buttons">
+                    {% if repo.private == true %}
+                    <span class="badge badge-danger">Private</span>
+                    {% else %}
+                    <span class="badge badge-success">Public</span>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h1 class="h3 mb-3 font-weight-normal">Something went wrong...</h1>
+        {% endif %}
+    </div>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2019</p>
+</div>
+</body>
+</html>
