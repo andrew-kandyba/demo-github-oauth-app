@@ -13,8 +13,8 @@ require __DIR__ . '/vendor/autoload.php';
 $config = [
     'settings' => [
         'scope'        => implode(' ', ['repo, user']),
-        'clientId'     => 'c67d56f9f041d114def5',
-        'clientSecret' => 'bd0686193fa2c736995b967908d9bee10077abd0',
+        'clientId'     => '******',
+        'clientSecret' => '******',
     ],
 ];
 
